@@ -30,6 +30,7 @@ namespace mehr1us.ids
                     Plugin.logger.LogError("Failed Hooking RainWorldGame.ctor");
                     return;
                 }
+                // update the static variables from the config class to make sure they aren't defaults, then replace the 100/10000 with the variables
                 c.Emit(OpCodes.Call, typeof(IDHooks).GetMethod("UpdateStatics", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static));
                 c.Emit(OpCodes.Ldsfld, typeof(IDHooks).GetField("StartingIdMin", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static));
                 c.Emit(OpCodes.Ldsfld, typeof(IDHooks).GetField("StartingIdMax", BindingFlags.NonPublic | BindingFlags.Public | BindingFlags.Instance | BindingFlags.Static));
