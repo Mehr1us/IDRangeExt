@@ -10,8 +10,8 @@ namespace mehr1us.ids
 
         public IDRangeCfg() 
         {
-            StartingIdMin = this.config.Bind<int>("StartingIdMin", 1000, new ConfigAcceptableRange<int>(int.MinValue,int.MaxValue));
-            StartingIdMax = this.config.Bind<int>("StartingIdMax", 100000, new ConfigAcceptableRange<int>(int.MinValue, int.MaxValue));
+            StartingIdMin = this.config.Bind<int>("StartingIdMin", 1000, new ConfigAcceptableRange<int>(int.MinValue + 1,int.MaxValue));
+            StartingIdMax = this.config.Bind<int>("StartingIdMax", 100000, new ConfigAcceptableRange<int>(int.MinValue + 1, int.MaxValue));
         }
 
         public override void Initialize()
